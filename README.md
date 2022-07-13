@@ -1,77 +1,26 @@
-# Turborepo starter with pnpm
-
-This is an official starter turborepo.
-
-## What's inside?
-
-This turborepo uses [pnpm](https://pnpm.io) as a packages manager. It includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org) app
-- `web`: another [Next.js](https://nextjs.org) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-## Setup
-
-This repository is used in the `npx create-turbo@latest` command, and selected when choosing which package manager you wish to use with your monorepo (pnpm).
-
-### Build
-
-To build all apps and packages, run the following command:
+安装依赖后运行 max setup 就报错了，执行 max dev 也会报错
 
 ```
-cd my-turborepo
-pnpm run build
+$ max setup
+│ fatal - Error: Register plugin /Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/@umijs+plugins@4.0.6_ifk47trdx4k2nmkpfwvit
+│ Require stack:
+│ - /Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/@umijs+plugins@4.0.6_ifk47trdx4k2nmkpfwvitjhdqq/node_modules/@umijs/plu
+│ - /Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/@umijs+plugins@4.0.6_ifk47trdx4k2nmkpfwvitjhdqq/node_modules/@umijs/plu
+│ - /Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/@umijs+core@4.0.6/node_modules/@umijs/core/dist/service/plugin.js
+│ - /Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/@umijs+core@4.0.6/node_modules/@umijs/core/dist/service/pluginAPI.js
+│ - /Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/@umijs+core@4.0.6/node_modules/@umijs/core/dist/index.js
+│ - /Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/umi@4.0.6_n6ei2enrkwsxqmhl5cihb3nvii/node_modules/umi/dist/service/serv
+│ - /Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/umi@4.0.6_n6ei2enrkwsxqmhl5cihb3nvii/node_modules/umi/dist/cli/cli.js
+│ - /Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/umi@4.0.6_n6ei2enrkwsxqmhl5cihb3nvii/node_modules/umi/dist/index.js
+│ - /Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/@umijs+max@4.0.6_nc4dtyqdheuhii572r4yb6hf5i/node_modules/@umijs/max/dis
+│ - /Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/@umijs+max@4.0.6_nc4dtyqdheuhii572r4yb6hf5i/node_modules/@umijs/max/bin
+│     at Plugin.apply (/Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/@umijs+core@4.0.6/node_modules/@umijs/core/dist/serv
+│     at Service.initPlugin (/Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/@umijs+core@4.0.6/node_modules/@umijs/core/dis
+│     at Service.run (/Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/@umijs+core@4.0.6/node_modules/@umijs/core/dist/servi
+│     at processTicksAndRejections (node:internal/process/task_queues:96:5)
+│     at async Service.run2 (/Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/umi@4.0.6_n6ei2enrkwsxqmhl5cihb3nvii/node_modu
+│     at async run (/Users/cuiliang/FE/React/umi3-and-umi4/node_modules/.pnpm/umi@4.0.6_n6ei2enrkwsxqmhl5cihb3nvii/node_modules/umi/d
+│ fatal - A complete log of this run can be found in:
+│ fatal - /Users/cuiliang/FE/React/umi3-and-umi4/apps/umi4/node_modules/.cache/logger/umi.log
+│ fatal - Consider reporting a GitHub issue on https://github.com/umijs/umi/issues
 ```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-pnpx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-pnpx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
-- [Caching](https://turborepo.org/docs/core-concepts/caching)
-- [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
